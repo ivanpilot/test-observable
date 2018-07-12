@@ -1,4 +1,5 @@
-<div *ngIf="bonds else nothing">
+
+<div *ngFor="let bond of (bonds$ | async) ">
   <h3>Transaction is a {{ bond.side }}</h3>
 
   <p>buyer is {{ bond.buyer }}</p>
@@ -7,6 +8,3 @@
   <h4>price is {{ bond.price }}</h4>
   <p>size is {{ bond.size }}</p>
 </div>
-<ng-template #nothing>
-  <p>Nothing to display for now</p>
-</ng-template>

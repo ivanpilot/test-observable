@@ -10,7 +10,6 @@ import { Bond } from './shared/model/bond';
 export class AppComponent implements OnInit {
 
   public bondsList$: Observable<Bond[]>
-  public bondsList: Bond[]
   
   ngOnInit(){
     this.bondsList$ = Observable.create(observer => {
@@ -24,11 +23,6 @@ export class AppComponent implements OnInit {
         }])
       }, 3000)
     })
-
-    // this.bondsList$.subscribe( data => {
-    //   console.log(data)
-    //   this.bondsList = data
-    // })
   }
 
 

@@ -1,12 +1,14 @@
-<div *ngIf="bonds else nothing">
-  <h3>Transaction is a {{ bond.side }}</h3>
+<div *ngIf="bonds$ | async as bonds else nothing">
+  <div *ngFor="let bond of bonds">
+    <h3>Transaction is a {{ bond.side }}</h3>
 
-  <p>buyer is {{ bond.buyer }}</p>
-  <p>seller is {{ bond.seller }}</p>
-  <br><br>
-  <h4>price is {{ bond.price }}</h4>
-  <p>size is {{ bond.size }}</p>
+    <p>buyer is {{ bond.buyer }}</p>
+    <p>seller is {{ bond.seller }}</p>
+    <br><br>
+    <h4>price is {{ bond.price }}</h4>
+    <p>size is {{ bond.size }}</p>
+  </div>
 </div>
 <ng-template #nothing>
-  <p>Nothing to display for now</p>
+  <p>nothing</p>
 </ng-template>

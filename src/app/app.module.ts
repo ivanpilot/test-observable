@@ -20,15 +20,17 @@ import { store } from './store';
 export class AppModule { 
 
   constructor(){
-    setTimeout(() => {
-      store.updateData([{
-        side: "buy",
-        size: Math.floor(Math.random() * 10),
-        price: Math.floor(Math.random() * 100),
-        seller: 'Ivan',
-        buyer: 'Donald'
-      }])
-    }, 3000);
+    // setInterval(() => {
+    //   store.updateData([{
+    //     side: "buy",
+    //     size: Math.floor(Math.random() * 10),
+    //     price: Math.floor(Math.random() * 100),
+    //     seller: 'Ivan',
+    //     buyer: 'Donald'
+    //   }])
+    // }, 3000);
+
+
   }
 
 }

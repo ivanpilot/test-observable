@@ -10,7 +10,7 @@ import { store } from '../store';
 })
 export class BondComponent implements OnInit, Observer<Bond> {
   bonds$: Observable<Bond[]>
-  bonds: Bond[]
+  // bonds: Bond[]
 
   constructor() { }
 
@@ -18,9 +18,10 @@ export class BondComponent implements OnInit, Observer<Bond> {
     store.bonds$.subscribe(this)
   }
 
-  next(data: any){
-    console.log(data)
-    this.bonds = data[0]
+  next = (data) => {
+    // console.log(data)
+    // this.bonds = [...data]
+    this.reader()
   }
 
   error(err){
@@ -30,5 +31,12 @@ export class BondComponent implements OnInit, Observer<Bond> {
   complete(){
     console.log('The observable has completed')
   }
+
+  reader() {
+    this.bonds$ = store.readData()
+  }
+  // reader(): Observable<Bond[]> {
+  //   return store.readData()
+  // }
 
 }

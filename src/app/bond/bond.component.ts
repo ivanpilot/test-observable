@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observer, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Bond } from '../shared/model/bond';
 import { store } from '../store';
 
@@ -8,31 +8,16 @@ import { store } from '../store';
   templateUrl: './bond.component.html',
   styleUrls: ['./bond.component.css']
 })
-// export class BondComponent implements OnInit, Observer<Bond> {
-export class BondComponent implements OnInit, Observer<Bond[]> {
+
+export class BondComponent implements OnInit {
   bonds$: Observable<Bond[]>
 
   constructor() { }
 
   ngOnInit() {
-    store.bonds$.subscribe(this)
+    store.bonds$.subscribe(() => {
+      this.bonds$ = store.readData()
+      console.log(this.bonds$)
+    })
   }
-
-  next = (data: any) => {
-    console.log(data)
-    this.readData()
-  }
-  
-  error(err){
-    console.log(err)
-  }
-  
-  complete(){
-    console.log('The observable has completed')
-  }
-  
-  readData(){
-    this.bonds$ = store.readData()
-  }
-
 }

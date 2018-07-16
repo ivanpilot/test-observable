@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { BondComponent } from './bond/bond.component';
 
 import { store } from './store';
+import { BondChildComponent } from './bond-child/bond-child.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BondComponent
+    BondComponent,
+    BondChildComponent
   ],
   imports: [
     BrowserModule
@@ -28,7 +30,7 @@ export class AppModule {
         seller: 'Ivan',
         buyer: 'Donald'
       }])
-    }, 3000);
+    }, 1000);
   }
 
 }

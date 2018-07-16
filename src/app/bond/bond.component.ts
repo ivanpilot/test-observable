@@ -9,28 +9,30 @@ import { store } from '../store';
   styleUrls: ['./bond.component.css']
 })
 // export class BondComponent implements OnInit, Observer<Bond> {
-export class BondComponent implements OnInit {
+export class BondComponent implements OnInit, Observer<Bond[]> {
   bonds$: Observable<Bond[]>
-  // bonds: Bond[]
 
   constructor() { }
 
   ngOnInit() {
-    // store.bonds$.subscribe(this)
-    this.bonds$ = store.bonds$
+    store.bonds$.subscribe(this)
   }
 
-  // next(data: any){
-  //   console.log(data)
-  //   this.bonds = data[0]
-  // }
+  next = (data: any) => {
+    console.log(data)
+    this.bonds$ = this.readData()
+  }
 
-  // error(err){
-  //   console.log(err)
-  // }
+  error(err){
+    console.log(err)
+  }
 
-  // complete(){
-  //   console.log('The observable has completed')
-  // }
+  complete(){
+    console.log('The observable has completed')
+  }
+
+  readData(){
+    return store.readData()
+  }
 
 }

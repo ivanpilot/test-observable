@@ -11,6 +11,10 @@ class DataStore {
     this.bondSubject.next([...bonds])
   }
 
+  readData(): Observable<Bond[]>{
+    return this.bondSubject
+  }
+
 }
 
 export const store = new DataStore()

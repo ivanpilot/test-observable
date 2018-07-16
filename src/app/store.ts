@@ -9,7 +9,7 @@ class DataStore {
     this._bondSubject.next([...bonds])
   }
 
-  readData(){
+  readData(): Observable<Bond[]>{
     return this._bondSubject
   }
 

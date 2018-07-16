@@ -20,19 +20,19 @@ export class BondComponent implements OnInit, Observer<Bond[]> {
 
   next = (data: any) => {
     console.log(data)
-    this.bonds$ = this.readData()
+    this.readData()
   }
-
+  
   error(err){
     console.log(err)
   }
-
+  
   complete(){
     console.log('The observable has completed')
   }
-
+  
   readData(){
-    return store.readData()
+    this.bonds$ = store.readData()
   }
 
 }

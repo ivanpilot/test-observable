@@ -4,12 +4,11 @@ import { Observable } from 'rxjs';
 import { store } from '../store';
 
 @Component({
-  selector: 'bond-child',
-  templateUrl: './bond-child.component.html',
-  styleUrls: ['./bond-child.component.css']
+  selector: 'bond-child-bis',
+  templateUrl: './bond-child-bis.component.html',
+  styleUrls: ['./bond-child-bis.component.css']
 })
-
-export class BondChildComponent implements OnInit {
+export class BondChildBisComponent implements OnInit {
   // @Input() bonds: Bond[]
   bonds$: Observable<Bond[]>
 
@@ -18,7 +17,7 @@ export class BondChildComponent implements OnInit {
   ngOnInit() {
     store.bonds$.subscribe(() => {
       this.bonds$ = store.readData()
-      console.log('from 1 >>', this.bonds$)
+      console.log('from 2 >>', this.bonds$)
     })
   }
 
